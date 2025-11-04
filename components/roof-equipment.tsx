@@ -3,6 +3,14 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { Shield, Settings, DollarSign, Sparkles } from "lucide-react"
+
+const icons = [
+  { Icon: Shield, label: "Sigurnost", color: "text-primary" },
+  { Icon: Settings, label: "Funkcionalnost", color: "text-primary" },
+  { Icon: DollarSign, label: "Ekonomičnost", color: "text-primary" },
+  { Icon: Sparkles, label: "Estetika", color: "text-primary" },
+]
 
 export function RoofEquipment() {
   const ref = useRef(null)
@@ -94,6 +102,34 @@ export function RoofEquipment() {
               </p>
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* Icons Grid - Below the content */}
+        <div className="container mx-auto px-4 mt-16 md:mt-24">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {icons.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.6 + index * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-sm border border-primary/30 flex items-center justify-center mb-4 shadow-lg shadow-primary/20"
+                  >
+                    <item.Icon className={`w-8 h-8 md:w-10 md:h-10 ${item.color}`} />
+                  </motion.div>
+                  <h3 className="text-base md:text-lg font-semibold text-white">{item.label}</h3>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -11,7 +11,8 @@ const categories = [
   {
     id: "bs",
     icon: Layers,
-    title: "LUFTAKTIV BS",
+    title: "LUFTAKTIV",
+    titleHighlight: "BS",
     subtitle: "Krovne membrane",
     description: "Vrhunske difuzione membrane za optimalnu zaštitu krovne konstrukcije",
     products: [
@@ -51,7 +52,8 @@ const categories = [
   {
     id: "aeroll",
     icon: Wind,
-    title: "LUFTAKTIV Aeroll",
+    title: "LUFTAKTIV",
+    titleHighlight: "AEROLL",
     subtitle: "Odzračivanje krovišta",
     description: "Inovativni sistemi ventilacije za produženi životni vijek krova",
     products: [
@@ -84,7 +86,8 @@ const categories = [
   {
     id: "safex",
     icon: ShieldCheck,
-    title: "LUFTAKTIV SafeX",
+    title: "LUFTAKTIV",
+    titleHighlight: "SAFEX",
     subtitle: "Sigurnosni krovni elementi",
     description: "Pouzdani sigurnosni elementi za maksimalnu zaštitu",
     products: [
@@ -238,10 +241,10 @@ export function ProductCategories() {
                 >
                   <Card
                     onClick={() => handleCategoryClick(category.id)}
-                    className={`group relative h-full p-8 rounded-3xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border-2 transition-all duration-500 overflow-hidden ${
+                    className={`group relative h-full p-8 rounded-3xl bg-gradient-to-br from-slate-50/95 to-white/95 backdrop-blur-sm border-2 transition-all duration-500 overflow-hidden ${
                       category.products.length > 0
-                        ? "border-slate-700/50 hover:border-primary cursor-pointer"
-                        : "border-slate-700/50"
+                        ? "border-slate-200/50 hover:border-primary cursor-pointer"
+                        : "border-slate-200/50"
                     }`}
                   >
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/30 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
@@ -265,20 +268,28 @@ export function ProductCategories() {
                         initial={{ scale: 1 }}
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
-                        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 group-hover:from-white/30 group-hover:to-white/20 flex items-center justify-center mb-6 transition-all duration-500 border border-primary/30 group-hover:border-white/50"
+                        className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 transition-all duration-500 border border-primary/30 group-hover:border-primary/50"
                       >
-                        <category.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-500" />
+                        <category.icon className="w-8 h-8 text-white transition-colors duration-500" />
                       </motion.div>
 
-                      <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
-                      <p className="text-sm font-semibold text-primary group-hover:text-white/90 mb-4 transition-colors duration-500">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                        {category.title}
+                        {category.titleHighlight && (
+                          <>
+                            {" "}
+                            <span className="text-red-600">{category.titleHighlight}</span>
+                          </>
+                        )}
+                      </h3>
+                      <p className="text-sm font-semibold text-primary mb-4 transition-colors duration-500">
                         {category.subtitle}
                       </p>
-                      <p className="text-slate-300 group-hover:text-white/90 leading-relaxed transition-colors duration-500">
+                      <p className="text-slate-700 leading-relaxed transition-colors duration-500">
                         {category.description}
                       </p>
                       {category.products.length > 0 && (
-                        <p className="text-xs text-primary/70 mt-4 group-hover:text-white/70">
+                        <p className="text-xs text-primary/70 mt-4">
                           Kliknite za detalje →
                         </p>
                       )}
@@ -317,6 +328,12 @@ export function ProductCategories() {
               >
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {selectedCategory?.title}
+                  {selectedCategory?.titleHighlight && (
+                    <>
+                      {" "}
+                      <span className="text-red-600">{selectedCategory?.titleHighlight}</span>
+                    </>
+                  )}
                 </h3>
                 <p className="text-xl text-white/80">{selectedCategory?.description}</p>
               </motion.div>
@@ -330,7 +347,7 @@ export function ProductCategories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
                   >
-                    <Card className={`group relative h-full ${isSafeX ? "p-4" : "p-6"} rounded-3xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border-2 border-slate-700/50 hover:border-primary transition-all duration-500 overflow-hidden`}>
+                    <Card className={`group relative h-full ${isSafeX ? "p-4" : "p-6"} rounded-3xl bg-gradient-to-br from-slate-50/95 to-white/95 backdrop-blur-sm border-2 border-slate-200/50 hover:border-primary transition-all duration-500 overflow-hidden`}>
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
                       {/* 2x2 color grid in top right corner */}
                       <div className="absolute top-0 right-0 w-16 h-16 z-30 rounded-tr-3xl overflow-hidden pointer-events-none">
@@ -360,7 +377,7 @@ export function ProductCategories() {
 
                         {/* Product Title */}
                         <div className="mb-4">
-                          <h4 className={`${isSafeX ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"} font-bold text-white inline`}>
+                          <h4 className={`${isSafeX ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"} font-bold text-slate-900 inline`}>
                             {product.title}
                             {product.titleHighlight && (
                               <>
@@ -372,7 +389,7 @@ export function ProductCategories() {
                         </div>
 
                         {/* Description */}
-                        <p className="text-white/90 mb-6 leading-relaxed">{product.description}</p>
+                        <p className="text-slate-700 mb-6 leading-relaxed">{product.description}</p>
 
                         {/* Features */}
                         <div className="space-y-3">
@@ -385,7 +402,7 @@ export function ProductCategories() {
                               className="flex items-start gap-3"
                             >
                               <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                              <span className="text-white/80 text-sm md:text-base">{feature}</span>
+                              <span className="text-slate-700 text-sm md:text-base">{feature}</span>
                             </motion.div>
                           ))}
                         </div>

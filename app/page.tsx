@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/hero-section"
-import { MarathonAnalogy } from "@/components/marathon-analogy"
 import { RoofEquipment } from "@/components/roof-equipment"
 import { ProductCategories } from "@/components/product-categories"
 import { SafetySection } from "@/components/safety-section"
@@ -38,7 +37,6 @@ export default function Home() {
           }}
         />
         <HeroSection />
-        <MarathonAnalogy />
         <RoofEquipment />
         <ProductCategories />
         <SafetySection />

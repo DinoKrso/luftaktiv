@@ -10,7 +10,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const navItems = [
   { label: "Početna", href: "#hero", id: "hero" },
-  { label: "O Nama", href: "#marathon", id: "marathon" },
   { label: "Oprema", href: "#equipment", id: "equipment" },
   { label: "Proizvodi", href: "#products", id: "products" },
 ]
@@ -129,7 +128,7 @@ export function AnimatedNavbar() {
               <motion.div className="flex justify-center" style={{ scale: pillScale }}>
                 <div className="relative rounded-full bg-white/5 backdrop-blur-2xl px-2 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
                   <div className="flex items-center">
-                    {navItems.slice(0, 4).map((item, index) => {
+                    {navItems.map((item, index) => {
                       const isActive = activeSection === item.id
                       return (
                         <motion.a

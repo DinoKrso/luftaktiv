@@ -9,10 +9,11 @@ export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const textRef = useRef<HTMLParagraphElement>(null)
+  const textRef2 = useRef<HTMLParagraphElement>(null)
   const scrollIndicatorRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!headingRef.current || !textRef.current || !scrollIndicatorRef.current) return
+    if (!headingRef.current || !textRef.current || !textRef2.current || !scrollIndicatorRef.current) return
 
     // Create timeline for smooth sequential animations
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
@@ -28,6 +29,13 @@ export function HeroSection() {
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.8 },
       "-=0.5"
+    )
+
+    // Second text animation
+    tl.fromTo(textRef2.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8 },
+      "-=0.3"
     )
 
     // Scroll indicator animation
@@ -63,8 +71,8 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Content - Left Aligned */}
-      <div className="relative z-10 flex flex-col items-start justify-center text-left pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-4 max-w-7xl w-full pt-20">
+      {/* Content - Center on mobile, Left on desktop */}
+      <div className="relative z-10 flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:pl-6 lg:pl-8 xl:pl-12 md:pr-4 max-w-7xl w-full pt-20">
         <h1
           ref={headingRef}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 text-balance"
@@ -74,11 +82,18 @@ export function HeroSection() {
 
         <p
           ref={textRef}
-          className="text-base md:text-lg lg:text-xl text-white/90 max-w-4xl leading-relaxed text-pretty"
+          className="text-base md:text-lg lg:text-xl text-white/90 max-w-4xl leading-relaxed text-pretty mb-6"
         >
           Mnogi kažu da život i posao nisu sprint, već maraton. Prenesimo ovu analogiju na sam životni vijek krova;
           maraton će biti uspješno istrčan ukoliko je obavljen trening (odluka o gradnji) i trčanje nakon pucnja iz
           startnog pištolja (gradnja krova).
+        </p>
+
+        <p
+          ref={textRef2}
+          className="text-base md:text-lg lg:text-xl text-white/90 max-w-4xl leading-relaxed text-pretty"
+        >
+          Maratonci znaju da su planiranje i minimiziranje mogućnosti ozljede od krucijalne važnosti za kvalitetan rezultat. Upravo nabavka krovne opreme predstavlja planiranje i minimiziranje mogućnosti pojavljivanja problema.
         </p>
       </div>
 

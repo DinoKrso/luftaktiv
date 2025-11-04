@@ -35,7 +35,7 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col items-center gap-3 w-full md:w-auto"
+              className="flex flex-col items-start gap-3 w-full md:w-auto"
             >
               <div className="text-sm md:text-base font-semibold text-transparent mb-1 h-6">LUFTAKTIV</div>
               <div className="relative h-6 md:h-8 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
@@ -55,11 +55,11 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col items-center gap-3 w-full md:w-auto"
+              className="flex flex-col items-start gap-3 w-full md:w-auto"
             >
-              <h3 className="text-sm md:text-base font-semibold text-white mb-1 text-center w-full md:w-auto">Adresa</h3>
-              <div className="flex flex-col items-center gap-1 text-white/80">
-                <div className="flex flex-col gap-1 text-sm md:text-base text-center">
+              <h3 className="text-sm md:text-base font-semibold text-white mb-1">Adresa</h3>
+              <div className="flex flex-col items-start gap-1 text-white/80">
+                <div className="flex flex-col gap-1 text-sm md:text-base">
                   <span>Boce br.11,</span>
                   <span>71240 Hadžići,</span>
                   <span>Bosna i Hercegovina</span>
@@ -73,10 +73,10 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="flex flex-col items-center gap-3 w-full md:w-auto"
+              className="flex flex-col items-start gap-3 w-full md:w-auto"
             >
-              <h3 className="text-sm md:text-base font-semibold text-white mb-1 text-center w-full md:w-auto">Kontakt</h3>
-              <div className="flex flex-col gap-2 items-center">
+              <h3 className="text-sm md:text-base font-semibold text-white mb-1">Kontakt</h3>
+              <div className="flex flex-col gap-2 items-start">
                 <a
                   href="tel:+38733562710"
                   className="flex items-center gap-3 text-white/80 hover:text-primary transition-colors duration-300 group"
@@ -96,36 +96,36 @@ export function Footer() {
                   <span className="text-sm md:text-base">F: +387 33 562 714</span>
                 </a>
                 <a
-                  href="mailto:office@tondach.ba"
+                  href="mailto:info@luftaktiv.com"
                   className="flex items-center gap-3 text-white/80 hover:text-primary transition-colors duration-300 group"
                 >
                   <div className="w-8 h-8 rounded-xl bg-primary/20 group-hover:bg-primary/30 border border-primary/30 group-hover:border-primary/50 flex items-center justify-center transition-all duration-300">
                     <Mail className="w-4 h-4 text-primary" />
                   </div>
-                  <span className="text-sm md:text-base">office@tondach.ba</span>
+                  <span className="text-sm md:text-base">info@luftaktiv.com</span>
                 </a>
               </div>
             </motion.div>
 
-            {/* 4. OLX with Logo */}
+            {/* 4. EHODACH with Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col items-center gap-2 w-full md:w-auto"
+              className="flex flex-col items-start gap-2 w-full md:w-auto"
             >
-              <p className="text-sm md:text-base font-semibold text-white mb-1 text-center w-full md:w-auto">OLX</p>
+              <p className="text-sm md:text-base font-semibold text-white mb-1">EHODACH</p>
               <a
-                href="https://olx.ba/shops/TondachBiH/aktivni"
+                href="https://www.echodah.ba"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="OLX TondachBiH shop"
-                className="relative h-20 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 mx-auto"
+                aria-label="Ehodach web site"
+                className="relative h-20 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
               >
                 <Image
-                  src="/olxLogo.svg"
-                  alt="OLX Logo"
+                  src="/EhoFooter.png"
+                  alt="Ehodach Logo"
                   width={200}
                   height={80}
                   className="object-contain h-20 md:h-24 w-auto brightness-0 invert"
@@ -133,28 +133,28 @@ export function Footer() {
               </a>
             </motion.div>
 
-            {/* 5. ECHODAH with Logo */}
+            {/* 5. OLX with Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="flex flex-col items-center gap-2 w-full md:w-auto"
+              className="flex flex-col items-start gap-2 w-full md:w-auto"
             >
-              <p className="text-sm md:text-base font-semibold text-white mb-1 text-center w-full md:w-auto">ECHODAH</p>
+              <p className="text-sm md:text-base font-semibold text-white mb-1">OLX</p>
               <a
-                href="https://www.echodah.ba"
+                href="https://olx.ba/shops/TondachBiH/aktivni"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Echodah web site"
-                className="relative h-20 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 mx-auto"
+                aria-label="OLX TondachBiH shop"
+                className="relative h-16 md:h-20 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
               >
                 <Image
-                  src="/EhoFooter.png"
-                  alt="Ehodah Logo"
+                  src="/olxLogo.svg"
+                  alt="OLX Logo"
                   width={200}
                   height={80}
-                  className="object-contain h-20 md:h-24 w-auto brightness-0 invert"
+                  className="object-contain h-16 md:h-20 w-auto brightness-0 invert"
                 />
               </a>
             </motion.div>
