@@ -7,14 +7,27 @@ import { ScrollSmoother } from "gsap/ScrollSmoother"
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
+const MOBILE_BREAKPOINT = 768
+
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const smootherRef = useRef<ScrollSmoother | null>(null)
 
   useEffect(() => {
+    // Check if device is mobile
+    const isMobile = () => {
+      return window.innerWidth < MOBILE_BREAKPOINT || 
+             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+
+    // Don't initialize ScrollSmoother on mobile devices
+    if (isMobile()) {
+      return
+    }
+
     // Wait for DOM to be ready
     const initScrollSmoother = () => {
       try {
-        // Initialize ScrollSmoother
+        // Initialize ScrollSmoother only on desktop
         const smoother = ScrollSmoother.create({
           wrapper: "#smooth-wrapper",
           content: "#smooth-content",
@@ -36,7 +49,15 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     
     // Handle resize
     const handleResize = () => {
-      smootherRef.current?.refresh()
+      // Kill smoother if resizing to mobile, reinitialize if resizing to desktop
+      if (isMobile() && smootherRef.current) {
+        smootherRef.current.kill()
+        smootherRef.current = null
+      } else if (!isMobile() && !smootherRef.current) {
+        initScrollSmoother()
+      } else {
+        smootherRef.current?.refresh()
+      }
     }
 
     window.addEventListener("resize", handleResize)

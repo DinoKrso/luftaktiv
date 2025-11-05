@@ -141,6 +141,23 @@
     bottom: 0;
   }
   
+  /* Disable smooth scroll wrapper on mobile - allow normal scrolling */
+  @media (max-width: 767px) {
+    #smooth-wrapper {
+      position: static;
+      overflow: visible;
+      height: auto;
+      width: 100%;
+    }
+    
+    #smooth-content {
+      position: static;
+      overflow: visible;
+      transform: none !important;
+      will-change: auto;
+    }
+  }
+  
   #smooth-content {
     overflow: visible;
     width: 100%;
