@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Shield, Settings, DollarSign, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 const icons = [
   { Icon: Shield, label: "Sigurnost", color: "text-primary" },
@@ -94,12 +95,22 @@ export function RoofEquipment() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-              className="p-8 md:p-10 rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-primary/30 shadow-xl shadow-primary/10"
+              className="p-8 md:p-10 rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-primary/30 shadow-xl shadow-primary/10 relative"
             >
               <p className="text-lg md:text-xl text-white/80 italic leading-relaxed">
                 Ehodach svojim kupcima u sklopu LUFTAKTIV programa nudi asortiman esencijalnih krovnih elemenata iznimne
                 njemačke kvalitete.
               </p>
+              <div className="absolute -right-2 -bottom-2 md:-right-4 md:-bottom-4 rotate-12 pointer-events-none">
+                <Image
+                  src="/madeingermany.png"
+                  alt="Made in Germany"
+                  width={120}
+                  height={120}
+                  className="w-16 h-16 md:w-24 md:h-24 object-contain drop-shadow-xl"
+                  sizes="(min-width: 768px) 96px, 64px"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>

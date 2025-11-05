@@ -313,7 +313,7 @@ export function ProductCategories() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
                 onClick={() => setExpandedCategory(null)}
-                className="mb-8 flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
+                className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white shadow hover:bg-white/25 border border-white/30 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
               >
                 <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 <span>Nazad na kategorije</span>
