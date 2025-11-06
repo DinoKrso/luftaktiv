@@ -96,7 +96,7 @@ export function SafetySection() {
               transition={{ duration: 0.9, delay: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
               className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed text-pretty max-w-2xl"
             >
-              Ne dajte se uvjeriti da je odbijanje ugradnje dodatne opreme ekonomično rješenje. Na maraton ne bi izašli
+              Ne dajte se uvjeriti da je odbijanje ugradnje krovne opreme ekonomično rješenje. Na maraton ne bi izašli
               kockajući se sa vlastitim zdravljem – zato nemojte to činiti ni sa vašim domom.
             </motion.p>
 

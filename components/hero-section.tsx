@@ -71,8 +71,8 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Content - Center on mobile, Left on desktop */}
-      <div className="relative z-10 flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:pl-6 lg:pl-8 xl:pl-12 md:pr-4 max-w-7xl w-full pt-20">
+      {/* Content - Left aligned on all screen sizes */}
+      <div className="relative z-10 flex flex-col items-start justify-center text-left px-4 md:pl-6 lg:pl-8 xl:pl-12 md:pr-4 max-w-7xl w-full pt-20">
         <h1
           ref={headingRef}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 text-balance"
