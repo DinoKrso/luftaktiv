@@ -117,7 +117,7 @@ export function Footer() {
             >
               <p className="text-sm md:text-base font-semibold text-white mb-1">EHODACH</p>
               <a
-                href="https://www.echodah.ba"
+                href="https://www.ehodach.ba/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Ehodach web site"
